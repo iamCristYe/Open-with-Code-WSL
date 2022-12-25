@@ -1,0 +1,33 @@
+Windows Registry Editor Version 5.00
+; You may replace
+; C:\\Program Files\\Microsoft VS Code\\Code.exe
+; with 
+; C:\\Users\\Your User Name\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe
+; for correct VS Code icon
+
+
+; Add the option for right-click on a folder
+[HKEY_CLASSES_ROOT\Directory\shell\VSCodeWSL]
+@="Open with Code (WSL)"
+"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\VSCodeWSL\command]
+@="wsl.exe --cd \"%V\" code ."
+
+
+; Add the option for right-click in the background of current folder
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCodeWSL]
+@="Open with Code (WSL)"
+"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCodeWSL\command]
+@="wsl.exe --cd \"%V\" code ."
+
+
+; Add the option for right-click on a file
+[HKEY_CLASSES_ROOT\*\shell\VSCodeWsl]
+@="Open with Code (WSL)"
+"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\VSCodeWsl\command]
+@="wsl.exe code \"$(wslpath '%1')\""
